@@ -3,7 +3,7 @@
 import type { Config } from 'tailwindcss'
 
 const config: Pick<Config, 'content' | 'presets'> = {
-  content: ['./src/app/**/*.tsx'],
+  content: ['./app/**/*.tsx'],
 }
 
 export default config
