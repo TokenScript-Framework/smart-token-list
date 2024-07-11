@@ -1,17 +1,41 @@
 {
   "name": "@repo/smart-token-list",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc"
+    "dev": "tsx src/index.ts",
+    "lint": "eslint",
+    "build": "tsup src/index.ts --sourcemap --minify --dts --format esm,cjs --shims --clean",
+    "postbuild": "shx cp -r src/chain dist/",
+    "test": "c8 ava"
   },
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/**/*"
   ],
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "ava": "^6.1.3",
+    "c8": "^10.1.2",
+    "ethers": "^6.13.1",
+    "shx": "^0.3.4",
+    "tsup": "^8.1.0",
+    "tsx": "^4.15.7",
     "typescript": "latest"
+  },
+  "ava": {
+    "extensions": [
+      "js",
+      "ts"
+    ],
+    "nodeArguments": [
+      "--import=tsx"
+    ]
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
   }
 }

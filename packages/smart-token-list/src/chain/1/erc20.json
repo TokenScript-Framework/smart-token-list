@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Smart Layer Network Token",
+    "address": "0xDb82c0d91E057E05600C8F8dc836bEb41da6df14",
+    "symbol": "SLN",
+    "decimals": 18,
+    "chainId": 1,
+    "logoURI": "https://resources.smartlayer.network/smart-token-store/images/collection-banners/0x7db4de78e6b9a98752b56959611e4cfda52269d2-137.png"
+  }
+]
