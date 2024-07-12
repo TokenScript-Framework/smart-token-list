@@ -31,17 +31,15 @@ export const SingleTokenCardInfo = (props: {
 
   return (
     <TooltipProvider>
-      <div className="flex w-full flex-none justify-between gap-x-4">
+      <div className="flex w-full flex-none items-center justify-between gap-x-4">
         <div className="flex items-center gap-4">
-          <div className="flex-none">
-            <span className="sr-only">{props.title}</span>
-            <Tooltip delayDuration={0}>
-              <TooltipTrigger>{props.icon}</TooltipTrigger>
-              <TooltipContent>
-                <p>Contract</p>
-              </TooltipContent>
-            </Tooltip>
-          </div>
+          <span className="sr-only">{props.title}</span>
+          <Tooltip delayDuration={0}>
+            <TooltipTrigger>{props.icon}</TooltipTrigger>
+            <TooltipContent>
+              <p>{props.title}</p>
+            </TooltipContent>
+          </Tooltip>
 
           <div className="text-sm font-medium leading-6 text-gray-900">
             <Tooltip delayDuration={0}>
