@@ -49,7 +49,7 @@ export function TokenCard({ className, ...props }: TokenCardProps) {
           />
 
           <SingleTokenCardInfo
-            title={"Contract"}
+            title={"Chain"}
             icon={
               <PolygonIcon
                 aria-hidden="true"
