@@ -14,6 +14,11 @@ const ERC5169_ABI = [
 const ERC721_INTERFACE_ID = "0x80ac58cd"
 const ERC1155_INTERFACE_ID = "0xd9b67a26"
 
+// some tokens will not pass the interface check
+const ERC721_WHITE_LIST: Record<number, string[]> = {
+  137: ["0x7db4de78e6b9a98752b56959611e4cfda52269d2"],
+}
+
 function getProvider(chainId: number): ethers.Provider {
   let rpcUrl
   switch (chainId) {
@@ -77,15 +82,17 @@ export async function isERC721(
   chainId: number,
   address: string
 ): Promise<boolean> {
+  if (
+    ERC721_WHITE_LIST[chainId]?.some(
+      (item) => item.toLowerCase() === address.toLowerCase()
+    )
+  ) {
+    return true
+  }
   const contract = new ethers.Contract(
     address,
     ERC165_ABI,
     getProvider(chainId)
-  )
-  console.log(
-    chainId,
-    address,
-    await contract.supportsInterface!(ERC721_INTERFACE_ID)
   )
   return contract.supportsInterface!(ERC721_INTERFACE_ID).catch(
     (err: unknown) => false
