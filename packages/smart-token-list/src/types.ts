@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod"
 
 /**
  * Common token info for all token types
@@ -8,7 +8,7 @@ export const BaseTokenSchema = z.object({
   name: z.string(),
   address: z.string().startsWith("0x").length(42),
   chainId: z.number(),
-});
+})
 
 /**
  * ERC20 token info
@@ -29,7 +29,7 @@ export const Erc20Schema = BaseTokenSchema.extend({
   symbol: z.string(),
   decimals: z.number().gte(0).lte(18),
   logoURI: z.string(),
-}).strict();
+}).strict()
 
 /**
  * ERC721 token info
@@ -48,7 +48,7 @@ export const Erc721Schema = BaseTokenSchema.extend({
   type: z.literal("erc721"),
   description: z.string(),
   image: z.string(),
-}).strict();
+}).strict()
 
 /**
  * ERC1155 token info
@@ -65,15 +65,15 @@ export const Erc721Schema = BaseTokenSchema.extend({
  */
 export const Erc1155Schema = Erc721Schema.extend({
   type: z.literal("erc1155"),
-}).strict();
+}).strict()
 
 export const TokenInfoSchema = z.union([
   Erc20Schema,
   Erc721Schema,
   Erc1155Schema,
-]);
+])
 
-export type Erc20 = z.infer<typeof Erc20Schema>;
-export type Erc721 = z.infer<typeof Erc721Schema>;
-export type Erc1155 = z.infer<typeof Erc1155Schema>;
-export type TokenInfo = z.infer<typeof TokenInfoSchema>;
+export type Erc20 = z.infer<typeof Erc20Schema>
+export type Erc721 = z.infer<typeof Erc721Schema>
+export type Erc1155 = z.infer<typeof Erc1155Schema>
+export type TokenInfo = z.infer<typeof TokenInfoSchema>

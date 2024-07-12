@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "tsx src/index.ts",
     "lint": "eslint",
-    "build": "tsup src/index.ts --sourcemap --minify --dts --format esm,cjs --shims --clean",
-    "postbuild": "shx cp -r src/chain dist/",
+    "prebuild": "tsx src/buildList.ts",
+    "build": "tsup",
+    "postbuild": "shx cp -r src/tokens.json dist/",
     "test": "c8 ava"
   },
   "main": "dist/index.cjs",
