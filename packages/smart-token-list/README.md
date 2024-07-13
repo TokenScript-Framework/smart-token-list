@@ -1,6 +1,6 @@
 # smart-token-list
 
-This is the smart tokens collection.
+This is the smart tokens collection. All tokens here should also implement the [ERC5169](https://eips.ethereum.org/EIPS/eip-5169) interface.
 
 ## Installation
 
