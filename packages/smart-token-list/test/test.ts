@@ -1,10 +1,14 @@
 import test from "ava"
+import fs from "fs"
+import path from "path"
 import { z } from "zod"
 import { Erc1155Schema, Erc20Schema, Erc721Schema } from "../src"
 import {
+  BASE_PATH,
   readAllERC1155Files,
   readAllERC20Files,
   readAllERC721Files,
+  readAllJsonFilesUnderDir,
 } from "../src/utils"
 import {
   getDuplicates,
@@ -76,6 +80,26 @@ test("erc1155.json should not contains duplicate items", (t) => {
     `${erc1155Duplicates.length} duplicate items found in erc1155.json:
 ${JSON.stringify(erc1155Duplicates, null, 2)}`
   )
+})
+
+test("chainId of all items in the json file should match its directory", (t) => {
+  const dirs = fs
+    .readdirSync(BASE_PATH, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name)
+
+  for (const dir of dirs) {
+    const json = readAllJsonFilesUnderDir(path.join(BASE_PATH, dir))
+    const invalid = json.filter((item: any) => {
+      return item.chainId !== parseInt(dir)
+    })
+    t.is(
+      invalid.length,
+      0,
+      `${invalid.length} items found in chain/${dir}/ with invalid chainId:
+${JSON.stringify(invalid, null, 2)}`
+    )
+  }
 })
 
 test("all items in erc20.json should be ERC20 tokens", async (t) => {

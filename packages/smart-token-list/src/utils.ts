@@ -7,11 +7,21 @@ import { Erc1155, Erc20, Erc721, TokenInfo } from "./types"
 const __filename = fileURLToPath(import.meta.url)
 export const __dirname = path.dirname(__filename)
 
-const BASE_PATH = path.join(__dirname, "./chain/")
+export const BASE_PATH = path.join(__dirname, "./chain/")
 
 export function readJSONFile(filePath: string | Buffer) {
   const file = fs.readFileSync(filePath, "utf8")
   return JSON.parse(file)
+}
+
+export function readAllJsonFilesUnderDir(
+  dirPath: string
+): Omit<TokenInfo, "type">[] {
+  return fs
+    .readdirSync(dirPath)
+    .filter((f) => f.toString().endsWith(".json"))
+    .map((p) => readJSONFile(path.join(dirPath, p.toString())))
+    .flat()
 }
 
 export function readAllERC20Files(): Omit<Erc20, "type">[] {
