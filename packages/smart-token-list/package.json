@@ -36,6 +36,17 @@
       "--import=tsx"
     ]
   },
+  "c8": {
+    "exclude": [
+      "test"
+    ],
+    "reporter": [
+      "text",
+      "cobertura",
+      "html",
+      "json-summary"
+    ]
+  },
   "dependencies": {
     "zod": "^3.23.8"
   }
