@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "prepare": "pnpm run build",
-    "dev": "pnpm run build",
     "lint": "eslint",
     "prebuild": "tsx src/buildList.ts",
     "build": "tsup",
