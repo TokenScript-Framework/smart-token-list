@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "prepare": "pnpm run build",
     "dev": "tsx src/index.ts",
     "lint": "eslint",
     "prebuild": "tsx src/buildList.ts",
