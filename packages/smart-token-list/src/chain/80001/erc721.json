@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Perion (PRN)",
+    "address": "0xFEf590bd4151eBdF9f8d1edf61E9E13A111f5727",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "Big Hitter (BIG_HITTER)",
+    "address": "0xdEb76E4106fA36b12BA6C7dE5CB8Ac8A05ecc005",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "Catch Max (CATCHMAX)",
+    "address": "0x3301d791712246ECf132Df85AF1A751105fC97c3",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "Catch Max (CATCHMAX)",
+    "address": "0xBff96d2A43FF305c739b8623E67210637CdD4580",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "MintPassBigHitters (MPBH)",
+    "address": "0xDe65eE182e63E8AB94D09d364cd06eddd9cf919B",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "MintPassBigHitters (MPBH)",
+    "address": "0xE6D70e681Afa63A95d1354F324EA610938833974",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "Catch Max (CATCHMAX)",
+    "address": "0x0fb754BCA606916c3B2f0bcCB05D5E467Bde9494",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "Catch Max (CATCHMAX)",
+    "address": "0xC9419ebd3DcBdFf2FaD35a8e13AcA24C26E9A38d",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "Shanghai NFT",
+    "address": "0xbfb48a42CdaAa47df88Df9529E25A3568Efdf2F8",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "SmartCat Reward (SCR)",
+    "address": "0x614cf3021705977c2ef4beb9d7f10a6bf4eaebf6",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "SmartCat Loot (SCL)",
+    "address": "0xe0697C54C2F418f98c97516bC81ebb97cDB52372",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "ERC721Mint",
+    "address": "0xe84Be2e18304AcF07ba2f11e37EABC321f4DC6Df",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "ERC721STD",
+    "address": "0xAfa35265C21ABC336EF05002B3d019ea0a24B437",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "ERC721STD",
+    "address": "0x8F03250387246f6abF2c132f1F9b645B5cEE0782",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "ERC721STD",
+    "address": "0xa1399e2bde50dee8bfb1ed7703c2966affd2d602",
+    "chainId": 80001,
+    "description": "",
+    "image": ""
+  }
+]

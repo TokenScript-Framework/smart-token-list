@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "name": "Devconnect 2022 Co-Work Ticket Stub (DEVCONNEC...)",
+    "address": "0x7Db4de78E6b9A98752B56959611e4cfdA52269D2",
+    "chainId": 1,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "BrandExtenderSuitUp",
+    "address": "0x3c7e352481f4b2fdec1e642a3f0018661c77513d",
+    "chainId": 1,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "BrandExtenderSuitUp(Edcon)",
+    "address": "0x186Fb870F8f77A4390391614C6b61374ad69dA77",
+    "chainId": 1,
+    "description": "",
+    "image": ""
+  }
+]

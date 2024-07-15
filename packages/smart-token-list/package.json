@@ -34,7 +34,8 @@
     ],
     "nodeArguments": [
       "--import=tsx"
-    ]
+    ],
+    "timeout": "5m"
   },
   "c8": {
     "exclude": [

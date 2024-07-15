@@ -1,0 +1,30 @@
+[
+  {
+    "name": "ERC721Mint",
+    "address": "0xa7C3CbBBF5b1986fBa241381f04115B699D6d271",
+    "chainId": 11155111,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "ERC721STD",
+    "address": "0x9927a462494C6078905245a308fE76aFD952b1c1",
+    "chainId": 11155111,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "SmartCats NFT",
+    "address": "0xa532D3c016aA0B44b7228aCcd701A5F03112CD22",
+    "chainId": 11155111,
+    "description": "",
+    "image": ""
+  },
+  {
+    "name": "Loot NFT",
+    "address": "0x886E9546C73c2A6ec94FeBFD10943cfdF6Ad9FBB",
+    "chainId": 11155111,
+    "description": "",
+    "image": ""
+  }
+]

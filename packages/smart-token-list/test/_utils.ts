@@ -20,24 +20,80 @@ const ERC721_WHITE_LIST: Record<number, string[]> = {
 }
 
 function getProvider(chainId: number): ethers.Provider {
-  let rpcUrl
+  let rpcUrl: string
   switch (chainId) {
     // mainnet
     case 1:
       rpcUrl = "https://eth.llamarpc.com"
       break
+    // Goerli
+    case 5:
+      rpcUrl = "https://eth-goerli.public.blastapi.io"
+      break
+    // OP Mainnet
+    case 10:
+      rpcUrl = "https://optimism.llamarpc.com"
+      break
     // polygon
     case 137:
-      rpcUrl = "https://polygon.llamarpc.com"
+      rpcUrl = "https://polygon.meowrpc.com"
       break
-    // klaytn mainnet
+    // Mint Mainnet
+    case 185:
+      rpcUrl = "https://global.rpc.mintchain.io"
+      break
+    // X Layer Testnet
+    case 195:
+      rpcUrl = "https://testrpc.xlayer.tech"
+      break
+    // Klaytn Testnet Baobab
+    case 1001:
+      rpcUrl = "https://klaytn-baobab.g.allthatnode.com/full/evm"
+      break
+    // Mint Sepolia Testnet
+    case 1687:
+      rpcUrl = "https://sepolia-testnet-rpc.mintchain.io"
+      break
+    // Klaytn Mainnet Cypress
     case 8217:
       rpcUrl = "https://klaytn.blockpi.network/v1/rpc/public"
+      break
+    // Base
+    case 8453:
+      rpcUrl = "https://base-pokt.nodies.app"
+      break
+    // Arbitrum One
+    case 42161:
+      rpcUrl = "https://arbitrum.llamarpc.com"
+      break
+    // Linea Goerli
+    case 59140:
+      rpcUrl = "https://rpc.goerli.linea.build"
+      break
+    // Mumbai
+    case 80001:
+      rpcUrl = "https://polygon-testnet.public.blastapi.io"
+      break
+    // Amoy
+    case 80002:
+      rpcUrl = "https://polygon-amoy.drpc.org"
+      break
+    // Base Sepolia Testnet
+    case 84532:
+      rpcUrl = "https://sepolia.base.org"
+      break
+    // Sepolia
+    case 11155111:
+      rpcUrl = "https://ethereum-sepolia-rpc.publicnode.com"
+      break
+    // OP Sepolia Testnet
+    case 11155420:
+      rpcUrl = "https://optimism-sepolia.blockpi.network/v1/rpc/public"
       break
     default:
       return ethers.getDefaultProvider(chainId)
   }
-  return new ethers.JsonRpcProvider(rpcUrl, chainId)
+  return new ethers.JsonRpcProvider(rpcUrl, chainId, { staticNetwork: true })
 }
 
 export function getDuplicates(json: any[], ...keys: string[]): any[] {
@@ -94,9 +150,7 @@ export async function isERC721(
     ERC165_ABI,
     getProvider(chainId)
   )
-  return contract.supportsInterface!(ERC721_INTERFACE_ID).catch(
-    (err: unknown) => false
-  )
+  return contract.supportsInterface!(ERC721_INTERFACE_ID).catch(() => false)
 }
 
 export async function isERC1155(
@@ -108,9 +162,7 @@ export async function isERC1155(
     ERC165_ABI,
     getProvider(chainId)
   )
-  return contract.supportsInterface!(ERC1155_INTERFACE_ID).catch(
-    (err: unknown) => false
-  )
+  return contract.supportsInterface!(ERC1155_INTERFACE_ID).catch(() => false)
 }
 
 export async function isERC5169(chainId: number, address: string) {

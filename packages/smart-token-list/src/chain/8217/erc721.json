@@ -1,9 +1,9 @@
 [
   {
-    "name": "Seven Dragons",
-    "description": "7D",
-    "image": "",
-    "address": "0x4e3f3a3dba12cec714cba0508a1bab8ead85af31",
-    "chainId": 8217
+    "name": "Seven Dragon NFT (ERC721 Enumerable)",
+    "address": "0x4e3F3a3dbA12cEC714CBa0508A1BAb8eAD85af31",
+    "chainId": 8217,
+    "description": "",
+    "image": ""
   }
 ]

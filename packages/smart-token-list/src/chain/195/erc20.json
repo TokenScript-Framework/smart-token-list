@@ -1,0 +1,18 @@
+[
+  {
+    "name": "ST404 Alpha Testing 2",
+    "address": "0x44Cb09F317DBdb81450e33Ab5cF965Ca9B453CaE",
+    "chainId": 195,
+    "symbol": "SATT2",
+    "decimals": 8,
+    "logoURI": ""
+  },
+  {
+    "name": "ZipCoin",
+    "address": "0xE41202D7a6FD540018aAe3Fb0f98B76a53c772A5",
+    "chainId": 195,
+    "symbol": "ZIP",
+    "decimals": 8,
+    "logoURI": ""
+  }
+]

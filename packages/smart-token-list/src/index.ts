@@ -4,8 +4,28 @@ import { TokenInfo } from "./types"
 export * from "./types"
 
 const ALL_TOKENS: TokenInfo[] = tokens as TokenInfo[]
-// TODO: add testnet chainid
-const TESTNET_CHAINID_LIST: number[] = [80001, 1001]
+const TESTNET_CHAINID_LIST: number[] = [
+  // Goerli
+  5,
+  // X Layer Testnet
+  195,
+  // Klaytn Testnet Baobab
+  1001,
+  // Mint Sepolia Testnet
+  1687,
+  // Linea Goerli
+  59140,
+  // Mumbai
+  80001,
+  // Amoy
+  80002,
+  // Base Sepolia Testnet
+  84532,
+  // Sepolia
+  11155111,
+  // OP Sepolia Testnet
+  11155420,
+]
 
 function numberMatched(num1: number, num2: number, fuzzy = false): boolean {
   if (fuzzy) {

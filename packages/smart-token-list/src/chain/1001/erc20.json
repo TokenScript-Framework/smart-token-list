@@ -1,0 +1,18 @@
+[
+  {
+    "name": "7 SD",
+    "address": "0x7DeCc880AB70436FA56e2b9D993B646D66cFA106",
+    "chainId": 1001,
+    "symbol": "7SD",
+    "decimals": 8,
+    "logoURI": ""
+  },
+  {
+    "name": "Smart Layer Network Token",
+    "address": "0x0b13B36827aC980055769E372CF0F288EEC591Ff",
+    "chainId": 1001,
+    "symbol": "SLN",
+    "decimals": 18,
+    "logoURI": ""
+  }
+]
