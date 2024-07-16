@@ -12,11 +12,7 @@ const project = resolve(process.cwd(), "tsconfig.json")
  */
 
 module.exports = {
-  extends: [
-    "next/core-web-vitals",
-    "prettier",
-    "plugin:tailwindcss/recommended",
-  ],
+  extends: ["next/core-web-vitals", "prettier"],
   parserOptions: {
     project,
   },

@@ -10,10 +10,18 @@ export function SearchList() {
 
   const searchParams = useSearchParams()
   const query = searchParams.get("query")
+  const chain = searchParams.get("chain") || "all"
 
   useEffect(() => {
-    setList(fuzzySearch(query || ""))
-  }, [query])
+    const searchResults = fuzzySearch(query || "")
+    if (chain === "all") {
+      setList(searchResults)
+    } else {
+      setList(
+        searchResults.filter((token) => token.chainId.toString() === chain)
+      )
+    }
+  }, [chain, query])
 
   return (
     <div className="relative flex flex-col gap-5 bg-[#f3f3f3] p-5 dark:bg-[#181818]">
