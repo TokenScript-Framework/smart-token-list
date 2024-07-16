@@ -2,6 +2,7 @@
 import { Search } from "lucide-react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useRef } from "react"
+import { useDebouncedCallback } from "use-debounce"
 
 export function SearchInput() {
   const searchParams = useSearchParams()
@@ -10,12 +11,12 @@ export function SearchInput() {
 
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const handleSearch = (term: string) => {
+  const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams)
     params.set("query", term)
 
     replace(`${pathname}?${params.toString()}`)
-  }
+  }, 300)
 
   useEffect(() => {
     if (inputRef.current) {
