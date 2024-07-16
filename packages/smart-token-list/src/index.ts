@@ -128,3 +128,18 @@ export function stat(params?: { includeTestnet?: boolean }): {
   )
   return { chains: result.chains, contracts: result.contracts }
 }
+
+export function getChains(params?: { includeTestnet?: boolean }) {
+  const includeTestnet = params?.includeTestnet ?? false
+  return ALL_TOKENS.reduce((acc, cur) => {
+    if (!includeTestnet && TESTNET_CHAINID_LIST.includes(cur.chainId)) {
+      return acc
+    }
+
+    if (!acc.includes(cur.chainId)) {
+      acc.push(cur.chainId)
+    }
+
+    return acc
+  }, [] as number[])
+}
