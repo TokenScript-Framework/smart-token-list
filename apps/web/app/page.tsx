@@ -1,5 +1,5 @@
 import { HeroBackground } from "@/components/home/hero-background"
-import { GithubIcon } from "@/components/icons/github-icon"
+import { ViewSourceCode } from "@/components/home/view-source-code"
 import { TokenScriptIcon } from "@/components/icons/tokenscript-icon"
 import { TokenCard } from "@/components/token-card"
 import { Button } from "@/components/ui/button"
@@ -16,28 +16,7 @@ export default function Page() {
 
               <div className="mx-auto max-w-xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-40">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-                  <div className="flex">
-                    <div className="relative flex items-center gap-x-4 rounded-full px-4 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                      <span className="text-primary font-semibold">
-                        Open sourced
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className="h-4 w-px bg-gray-900/10"
-                      />
-                      <a
-                        href="https://github.com/TokenScript-Framework/smart-token-list"
-                        className="flex items-center gap-1"
-                        target="_blank"
-                      >
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        View source code
-                        <Button asChild size="sm" variant="ghost">
-                          <GithubIcon />
-                        </Button>
-                      </a>
-                    </div>
-                  </div>
+                  <ViewSourceCode />
                   <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                     <TokenScriptIcon />
                     Smart Token List
