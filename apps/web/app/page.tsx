@@ -3,6 +3,7 @@ import { SearchList } from "@/components/home/search-list"
 import { ViewSourceCode } from "@/components/home/view-source-code"
 import { TokenScriptIcon } from "@/components/icons/tokenscript-icon"
 import { Button } from "@/components/ui/button"
+import { Suspense } from "react"
 
 export default function Page() {
   return (
@@ -49,7 +50,9 @@ export default function Page() {
         </div>
       </div>
 
-      <SearchList />
+      <Suspense>
+        <SearchList />
+      </Suspense>
     </div>
   )
 }
