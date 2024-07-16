@@ -69,8 +69,13 @@ export function TokenCard({ className, ...props }: TokenCardProps) {
       </CardContent>
 
       <CardFooter>
-        <Button className="text-primary w-full" variant="outline">
-          <Plus className="text-primary mr-2 size-4" /> Add to Explorer
+        <Button className="text-primary w-full" variant="outline" asChild>
+          <a
+            href={`https://www.tantantodo.com/?chain=${props.tokenInfo.chainId}&contract=${props.tokenInfo.address}&type=${props.tokenInfo.type}`}
+            target="_blank"
+          >
+            <Plus className="text-primary mr-2 size-4" /> Add to Explorer
+          </a>
         </Button>
       </CardFooter>
 
