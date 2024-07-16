@@ -1,9 +1,44 @@
 [
   {
     "name": "Devcon VI Souvenir",
-    "description": "Devcon VI Souvenir",
-    "image": "https://resources.smartlayer.network/smart-token-store/images/collection-banners/0x7db4de78e6b9a98752b56959611e4cfda52269d2-137.png",
     "address": "0x7db4de78e6b9a98752b56959611e4cfda52269d2",
-    "chainId": 137
+    "chainId": 137,
+    "description": "Devcon is the Ethereum conference for developers, researchers, thinkers, and makers.An intensive introduction for new Ethereum explorers, a global family reunion for those already a part of our ecosystem, and a source of energy and creativity for all. This ticket NFT serves as a souvenir for Devcon Bogota. With a symbolic focus on LATAM, and the beautiful destination of Bogota Colombia. The bird of paradise is known as the ultimate symbol of paradise and freedom. Due to its tropical nature, this flower symbolizes freedom and joy.",
+    "image": "https://resources.smarttokenlabs.com/devcon6/Collection_2.png"
+  },
+  {
+    "name": "Shanghai NFT",
+    "address": "0x3c7e352481f4b2fdec1e642a3f0018661c77513d",
+    "chainId": 137,
+    "description": "Shanghai 2023 Collectible",
+    "image": "https://i.seadn.io/gcs/files/c5d492d4e333b9c66e1a0bc71a38a937.jpg"
+  },
+  {
+    "name": "Smart Cat Collection",
+    "address": "0xD5cA946AC1c1F24Eb26dae9e1A53ba6a02bd97Fe",
+    "chainId": 137,
+    "description": "Smart Cat for Smart Layer",
+    "image": "https://www.smartlayer.network/images/smartcatcool.png"
+  },
+  {
+    "name": "Perion Rewards",
+    "address": "0xae2fdaea5dd454fbe4ee331a4f74e61e4aeaf452",
+    "chainId": 137,
+    "description": "Perion top 100 players reward token, redeemable for one of three exclusive Perion merchandise items via 02State Merch.",
+    "image": "https://merch.02state.com/images/02state-merch.png"
+  },
+  {
+    "name": "SmartCat Loot",
+    "address": "0x0D86C720e1Eb8CAb197707fDCFF9D7B218612a60",
+    "chainId": 137,
+    "description": "Smart Toys (Smart Loot) is an Executable NFT (XNFT) from Smart Layer enabled by ERC-5169 and TokenScript on Polygon. It is a Smart drop for Smart Cats. The collection is made out of 1000 Cat Loot xNFTs.\n\nAt any point, your Cat Loot xNFT can be burned for a guaranteed WETH return. Return value increases with transaction volume. Minimum WETH return is the sale price of 0.1 WETH minus a 10% transaction fee.\n\nFor Adopted Cat holders there are of course extra benefits in terms of Smart Layer points. Play with any of your Adopted Cats to stack more points. All via the Token Interface. No DApp is required. To get involved, grab yourself a Smart Cat and a Smart Toy:\n\nTo play -> Grab an XNFT then go to  https://viewer.tokenscript.org/\n\nLearn more -> https://www.smartlayer.network/smartcatloot\n\nQuestions and Suggestions -> Discord: https://discord.gg/3sQr2Uhn\n\nFind out more about this Executable NFTs from Smart Layer - https://medium.com/alphawallet/a-smart-drop-for-smart-cats-b3d996205b14\n",
+    "image": "https://resources.smarttokenlabs.com/smart-cat-loot/contract.png"
+  },
+  {
+    "name": "Catch Max (CATCHMAX)",
+    "address": "0xaE2997834342BEA574FBF14879C1539589aa9e43",
+    "chainId": 137,
+    "description": "",
+    "image": ""
   }
 ]

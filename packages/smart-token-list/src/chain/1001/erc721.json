@@ -1,9 +1,9 @@
 [
   {
-    "name": "7 Dragon NFT (ERC721)",
+    "name": "Seven Dragons Collection",
     "address": "0x73148b2C977586305F5aAA63b473a7AF96619296",
     "chainId": 1001,
-    "description": "",
-    "image": ""
+    "description": "A Seven Dragon is your passport to epic rewards across the Kaia blockchain. Your Dragon will earn and collect points, give you priority access to events and experiences and cement your place at the heart of the Kaia ecosystem.",
+    "image": "https://resources.smartlayer.network/smart-token-store/images/seven-dragon/market-tile.png"
   }
 ]

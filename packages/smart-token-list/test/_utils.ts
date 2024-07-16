@@ -19,16 +19,29 @@ const ERC721_WHITE_LIST: Record<number, string[]> = {
   137: ["0x7db4de78e6b9a98752b56959611e4cfda52269d2"],
 }
 
+const PROVIDER_CACHE: { [chainId: number]: ethers.Provider } = {}
+
 function getProvider(chainId: number): ethers.Provider {
-  let rpcUrl: string
+  if (PROVIDER_CACHE[chainId]) {
+    return PROVIDER_CACHE[chainId]
+  }
+
+  let rpcUrl: string | string[]
   switch (chainId) {
     // mainnet
     case 1:
-      rpcUrl = "https://eth.llamarpc.com"
+      rpcUrl = [
+        "https://eth.llamarpc.com",
+        "https://virginia.rpc.blxrbdn.com",
+        "https://rpc.payload.de",
+      ]
       break
     // Goerli
     case 5:
-      rpcUrl = "https://eth-goerli.public.blastapi.io"
+      rpcUrl = [
+        "https://eth-goerli.public.blastapi.io",
+        "https://eth-goerli.api.onfinality.io/public",
+      ]
       break
     // OP Mainnet
     case 10:
@@ -44,11 +57,11 @@ function getProvider(chainId: number): ethers.Provider {
       break
     // X Layer Testnet
     case 195:
-      rpcUrl = "https://testrpc.xlayer.tech"
+      rpcUrl = ["https://testrpc.xlayer.tech", "https://xlayertestrpc.okx.com"]
       break
     // Klaytn Testnet Baobab
     case 1001:
-      rpcUrl = "https://klaytn-baobab.g.allthatnode.com/full/evm"
+      rpcUrl = "https://public-en-baobab.klaytn.net"
       break
     // Mint Sepolia Testnet
     case 1687:
@@ -56,7 +69,7 @@ function getProvider(chainId: number): ethers.Provider {
       break
     // Klaytn Mainnet Cypress
     case 8217:
-      rpcUrl = "https://klaytn.blockpi.network/v1/rpc/public"
+      rpcUrl = "https://public-en-cypress.klaytn.net"
       break
     // Base
     case 8453:
@@ -72,7 +85,7 @@ function getProvider(chainId: number): ethers.Provider {
       break
     // Mumbai
     case 80001:
-      rpcUrl = "https://polygon-testnet.public.blastapi.io"
+      rpcUrl = "https://rpc-mumbai.polygon.technology"
       break
     // Amoy
     case 80002:
@@ -91,9 +104,26 @@ function getProvider(chainId: number): ethers.Provider {
       rpcUrl = "https://optimism-sepolia.blockpi.network/v1/rpc/public"
       break
     default:
-      return ethers.getDefaultProvider(chainId)
+      PROVIDER_CACHE[chainId] = ethers.getDefaultProvider(chainId)
+      return PROVIDER_CACHE[chainId]
   }
-  return new ethers.JsonRpcProvider(rpcUrl, chainId, { staticNetwork: true })
+
+  const provider =
+    typeof rpcUrl === "string"
+      ? new ethers.JsonRpcProvider(rpcUrl, chainId, { staticNetwork: true })
+      : new ethers.FallbackProvider(
+          rpcUrl.map((url) => {
+            return {
+              provider: new ethers.JsonRpcProvider(url, chainId, {
+                staticNetwork: true,
+              }),
+              stallTimeout: 2000,
+            }
+          }),
+          chainId
+        )
+  PROVIDER_CACHE[chainId] = provider
+  return provider
 }
 
 export function getDuplicates(json: any[], ...keys: string[]): any[] {
@@ -124,12 +154,10 @@ export async function isERC20(
 ): Promise<boolean> {
   const contract = new ethers.Contract(address, ERC20_ABI, getProvider(chainId))
   try {
-    await Promise.all([
-      contract.totalSupply!(),
-      contract.balanceOf!("0x0000000000000000000000000000000000000000"),
-    ])
+    await contract.totalSupply!()
+    await contract.balanceOf!("0x0000000000000000000000000000000000000000")
     return true
-  } catch (err: unknown) {
+  } catch (err) {
     return false
   }
 }
@@ -150,7 +178,9 @@ export async function isERC721(
     ERC165_ABI,
     getProvider(chainId)
   )
-  return contract.supportsInterface!(ERC721_INTERFACE_ID).catch(() => false)
+  return contract.supportsInterface!(ERC721_INTERFACE_ID).catch(() => {
+    return false
+  })
 }
 
 export async function isERC1155(
@@ -174,7 +204,7 @@ export async function isERC5169(chainId: number, address: string) {
   try {
     await contract.scriptURI!()
     return true
-  } catch (err: unknown) {
+  } catch (err) {
     return false
   }
 }

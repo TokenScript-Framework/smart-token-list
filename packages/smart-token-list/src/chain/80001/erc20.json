@@ -1,0 +1,34 @@
+[
+  {
+    "name": "ST404 Testing Token v3",
+    "address": "0xfe848c4597d9B4F5cC7FE2fb8067b6349b3C7551",
+    "chainId": 80001,
+    "symbol": "STTT3",
+    "decimals": 8,
+    "logoURI": ""
+  },
+  {
+    "name": "ST404 Testing Token v3",
+    "address": "0x939988265C7347456E9cF7d22a195727C5ea5C02",
+    "chainId": 80001,
+    "symbol": "STTT3",
+    "decimals": 8,
+    "logoURI": ""
+  },
+  {
+    "name": "ST404 Alpha Testing 2",
+    "address": "0x5d91e890c11A70164Fe1AC583093caB399c57B59",
+    "chainId": 80001,
+    "symbol": "SATT2",
+    "decimals": 8,
+    "logoURI": ""
+  },
+  {
+    "name": "Smart Layer Network Token",
+    "address": "0xdf7a66485ec6656944d3740e21ce2dc89151aad2",
+    "chainId": 80001,
+    "symbol": "SLN",
+    "decimals": 18,
+    "logoURI": "https://www.smartlayer.network/icon-white.png"
+  }
+]

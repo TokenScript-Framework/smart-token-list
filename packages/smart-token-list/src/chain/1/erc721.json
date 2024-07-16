@@ -1,23 +1,23 @@
 [
   {
-    "name": "Devconnect 2022 Co-Work Ticket Stub (DEVCONNEC...)",
-    "address": "0x7Db4de78E6b9A98752B56959611e4cfdA52269D2",
-    "chainId": 1,
-    "description": "",
-    "image": ""
-  },
-  {
-    "name": "BrandExtenderSuitUp",
-    "address": "0x3c7e352481f4b2fdec1e642a3f0018661c77513d",
-    "chainId": 1,
-    "description": "",
-    "image": ""
-  },
-  {
-    "name": "BrandExtenderSuitUp(Edcon)",
+    "name": "EDCON2023 Suit Up Collection",
     "address": "0x186Fb870F8f77A4390391614C6b61374ad69dA77",
     "chainId": 1,
-    "description": "",
-    "image": ""
+    "description": "EDCON2023 goes Montenegro. The EDCON2023 Suit Up Collection is a perk for the EDCON2023 ticket attestation holders. The Suit Up Collection are derivative NFTs based on underlying blue chip NFTs.",
+    "image": "https://resources.smarttokenlabs.com/edcon2023/edcon-logo.png"
+  },
+  {
+    "name": "Devconnect 2022 Co-Work Ticket Stub",
+    "address": "0x7Db4de78E6b9A98752B56959611e4cfdA52269D2",
+    "chainId": 1,
+    "description": "Devconnect 2022 was a first of its kind, week-long in-person gathering that featured independent Ethereum events, each with a unique focus. The Co-work Space became a hub for Devconnect participants who wanted to hang out and work together between events and collaborate together. This NFT is the token avatar of the original Devconnect Co-Working space ticket, minted by the ticket holder after the event.",
+    "image": "ipfs://QmbYrJs3zyNHXMZsaGHnP3B3YRtNrhyitT66PFKzJfLQDd"
+  },
+  {
+    "name": "Devcon VI Suit Up Collection",
+    "address": "0x3c7e352481f4b2fdec1e642a3f0018661c77513d",
+    "chainId": 1,
+    "description": "Devcon VI goes Bogota. The Devcon VI Suit Up Collection is one of Smart Token Labs Permissionless perks for Devcon VI  Bogota ticket holders. The Derivatives symbolise the Devcon spirit of empowering the community to create and build.",
+    "image": "https://resources.smarttokenlabs.com/devcon6/collection-image.png"
   }
 ]

@@ -1,18 +1,18 @@
 [
   {
     "name": "Seven Dragons",
-    "address": "0xa92556deb1Ce7cF6bB3078c1012cf66bAd82e4f6",
-    "chainId": 8217,
-    "symbol": "7D",
-    "decimals": 8,
-    "logoURI": ""
-  },
-  {
-    "name": "Seven Dragons",
     "address": "0xE39dC2CBe826EAC3d736C54Ef0c4045B2054a43e",
     "chainId": 8217,
     "symbol": "7D",
     "decimals": 8,
-    "logoURI": ""
+    "logoURI": "https://resources.smartlayer.network/smart-token-store/images/seven-dragon/market-tile.png"
+  },
+  {
+    "name": "Seven Dragons",
+    "address": "0xa92556deb1Ce7cF6bB3078c1012cf66bAd82e4f6",
+    "chainId": 8217,
+    "symbol": "7D",
+    "decimals": 8,
+    "logoURI": "https://resources.smartlayer.network/smart-token-store/images/seven-dragon/market-tile.png"
   }
 ]

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "ST404 Testing Token v3",
+    "address": "0xFedd0a4098dfe309366B6947F78C7bcB7fFe9442",
+    "chainId": 11155111,
+    "symbol": "STTT3",
+    "decimals": 8,
+    "logoURI": ""
+  },
+  {
+    "name": "ST404 Alpha Testing 3",
+    "address": "0x24cB1851d86d17D1C83Ba2DEDDEb030bCD725F1B",
+    "chainId": 11155111,
+    "symbol": "SATT3",
+    "decimals": 8,
+    "logoURI": ""
+  },
+  {
+    "name": "RB404 Alpha Testing v2",
+    "address": "0x6f923a119f5ff8af0db3e897ac360ab58929d6e7",
+    "chainId": 11155111,
+    "symbol": "RBTT",
+    "decimals": 8,
+    "logoURI": ""
+  },
+  {
+    "name": "RB404 Alpha Testing v4",
+    "address": "0xBB14e71E54E03808A6271722192d03EBDc2EAB7F",
+    "chainId": 11155111,
+    "symbol": "RBTT",
+    "decimals": 8,
+    "logoURI": ""
+  },
+  {
+    "name": "RB404 Alpha Testing v3",
+    "address": "0x6A55eE0A3E9CE2db407bCDBf88Dd185384404133",
+    "chainId": 11155111,
+    "symbol": "RBTT",
+    "decimals": 8,
+    "logoURI": ""
+  },
+  {
+    "name": "Smart Layer Network Token Demo",
+    "address": "0x0404ab3994ED48C300cE219546f757AD34484Dc7",
+    "chainId": 11155111,
+    "symbol": "SLN",
+    "decimals": 18,
+    "logoURI": "https://www.smartlayer.network/icon-white.png"
+  }
+]
