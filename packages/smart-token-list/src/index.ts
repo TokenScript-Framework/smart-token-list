@@ -50,7 +50,7 @@ export function query(params: {
   fuzzy?: boolean
 }): TokenInfo[] {
   if (!(params.chainId || params.name || params.address)) {
-    throw new Error("At least one of chain, name, address must be provided.")
+    return ALL_TOKENS
   }
 
   return ALL_TOKENS.filter((token) => {

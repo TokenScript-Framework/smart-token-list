@@ -56,6 +56,9 @@ importers:
       next:
         specifier: ^14.2.3
         version: 14.2.3(@babel/core@7.24.7)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      ramda:
+        specifier: ^0.30.1
+        version: 0.30.1
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -68,6 +71,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.1)
+      use-debounce:
+        specifier: ^10.0.1
+        version: 10.0.1(react@18.2.0)
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.3.0
@@ -84,6 +90,9 @@ importers:
       '@types/node':
         specifier: ^20.11.24
         version: 20.11.24
+      '@types/ramda':
+        specifier: ^0.30.1
+        version: 0.30.1
       '@types/react':
         specifier: ^18.2.61
         version: 18.2.61
@@ -1040,6 +1049,9 @@ packages:
 
   '@types/prop-types@15.7.11':
     resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
+
+  '@types/ramda@0.30.1':
+    resolution: {integrity: sha512-aoyF/ADPL6N+/NXXfhPWF+Qj6w1Cql59m9wX0Gi15uyF+bpzXeLd63HPdiTDE2bmLXfNcVufsDPKmbfOrOzTBA==}
 
   '@types/react-dom@18.2.19':
     resolution: {integrity: sha512-aZvQL6uUbIJpjZk4U8JZGbau9KDeAwMfmhyWorxgBkqDIEf6ROjRozcmPIicqsUwPUjbkDfHKgGee1Lq65APcA==}
@@ -3035,6 +3047,9 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
+  ramda@0.30.1:
+    resolution: {integrity: sha512-tEF5I22zJnuclswcZMc8bDIrwRHRzf+NqVEmqg50ShAZMP7MWeR/RGDthfM/p+BlqvF2fXAzpn8i+SJcYD3alw==}
+
   react-dom@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
@@ -3440,6 +3455,9 @@ packages:
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
+  ts-toolbelt@9.6.0:
+    resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
+
   tsconfig-paths@3.14.2:
     resolution: {integrity: sha512-o/9iXgCYc5L/JxCHPe3Hvh8Q/2xm5Z+p18PESBU6Ff33695QnCHBEjcytY2q19ua7Mbl/DavtBOLq+oG0RCL+g==}
 
@@ -3554,6 +3572,9 @@ packages:
   typed-array-length@1.0.4:
     resolution: {integrity: sha512-KjZypGq+I/H7HI5HlOoGHkWUUGq+Q0TPhQurLbyrVrvnKTBgzLhIJ7j6J/XTQOi0d1RjyZ0wdas8bKs2p0x3Ng==}
 
+  types-ramda@0.30.1:
+    resolution: {integrity: sha512-1HTsf5/QVRmLzcGfldPFvkVsAdi1db1BBKzi7iW3KBUlOICg/nKnFS+jGqDJS3YD8VsWbAh7JiHeBvbsw8RPxA==}
+
   typescript@5.3.3:
     resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
     engines: {node: '>=14.17'}
@@ -3586,6 +3607,12 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
+
+  use-debounce@10.0.1:
+    resolution: {integrity: sha512-0uUXjOfm44e6z4LZ/woZvkM8FwV1wiuoB6xnrrOmeAEjRDDzTLQNRFtYHvqUsJdrz1X37j0rVGIVp144GLHGKg==}
+    engines: {node: '>= 16.0.0'}
+    peerDependencies:
+      react: '>=16.8.0'
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -4512,6 +4539,10 @@ snapshots:
   '@types/normalize-package-data@2.4.4': {}
 
   '@types/prop-types@15.7.11': {}
+
+  '@types/ramda@0.30.1':
+    dependencies:
+      types-ramda: 0.30.1
 
   '@types/react-dom@18.2.19':
     dependencies:
@@ -6668,6 +6699,8 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
+  ramda@0.30.1: {}
+
   react-dom@18.2.0(react@18.2.0):
     dependencies:
       loose-envify: 1.4.0
@@ -7124,6 +7157,8 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
+  ts-toolbelt@9.6.0: {}
+
   tsconfig-paths@3.14.2:
     dependencies:
       '@types/json5': 0.0.29
@@ -7240,6 +7275,10 @@ snapshots:
       for-each: 0.3.3
       is-typed-array: 1.1.12
 
+  types-ramda@0.30.1:
+    dependencies:
+      ts-toolbelt: 9.6.0
+
   typescript@5.3.3: {}
 
   typescript@5.5.3: {}
@@ -7266,6 +7305,10 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
+
+  use-debounce@10.0.1(react@18.2.0):
+    dependencies:
+      react: 18.2.0
 
   util-deprecate@1.0.2: {}
 
