@@ -24,7 +24,7 @@ export function SearchInput() {
                 Search Smart Tokens
               </span>
               <input
-                placeholder="Smart Cat, SLN, ..."
+                placeholder="SmartCat, SLN, ..."
                 className="flex-1 bg-white px-3 pb-4 pt-2 text-black outline-none sm:px-2 sm:py-4 dark:bg-[#0D0D0D] dark:text-[#B3B3B3]"
                 onChange={(e) => handleSearch(e.target.value)}
                 defaultValue={searchParams.get("query")?.toString()}
