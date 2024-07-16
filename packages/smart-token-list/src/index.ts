@@ -1,31 +1,12 @@
+import { CHAIN_ID_MAP } from "./chain-map"
 import tokens from "./tokens.json"
 import { TokenInfo } from "./types"
 
 export * from "./types"
 
+export * from "./chain-map"
+
 const ALL_TOKENS: TokenInfo[] = tokens as TokenInfo[]
-const TESTNET_CHAINID_LIST: number[] = [
-  // Goerli
-  5,
-  // X Layer Testnet
-  195,
-  // Klaytn Testnet Baobab
-  1001,
-  // Mint Sepolia Testnet
-  1687,
-  // Linea Goerli
-  59140,
-  // Mumbai
-  80001,
-  // Amoy
-  80002,
-  // Base Sepolia Testnet
-  84532,
-  // Sepolia
-  11155111,
-  // OP Sepolia Testnet
-  11155420,
-]
 
 function numberMatched(num1: number, num2: number, fuzzy = false): boolean {
   if (fuzzy) {
@@ -108,7 +89,7 @@ export function stat(params?: { includeTestnet?: boolean }): {
   const includeTestnet = params?.includeTestnet ?? false
   const result = ALL_TOKENS.reduce(
     (acc, cur) => {
-      if (!includeTestnet && TESTNET_CHAINID_LIST.includes(cur.chainId)) {
+      if (!includeTestnet && CHAIN_ID_MAP[cur.chainId]?.isTestnet) {
         return acc
       }
 
@@ -132,7 +113,7 @@ export function stat(params?: { includeTestnet?: boolean }): {
 export function getChains(params?: { includeTestnet?: boolean }) {
   const includeTestnet = params?.includeTestnet ?? false
   return ALL_TOKENS.reduce((acc, cur) => {
-    if (!includeTestnet && TESTNET_CHAINID_LIST.includes(cur.chainId)) {
+    if (!includeTestnet && CHAIN_ID_MAP[cur.chainId]?.isTestnet) {
       return acc
     }
 

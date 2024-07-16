@@ -15,6 +15,8 @@ export const SingleTokenCardInfo = (props: {
   content: string
   contentTooltip?: string
   withCopy?: boolean
+  tailContent?: string
+  tailContentTooltip?: string
 }) => {
   const [copySuccess, showCopySuccess] = useState(false)
 
@@ -51,15 +53,27 @@ export const SingleTokenCardInfo = (props: {
           </div>
         </div>
 
-        {props.withCopy && (
-          <Button variant="ghost" size="icon" onClick={copyToClipboard}>
-            {copySuccess ? (
-              <Check className="h-4 w-4" />
-            ) : (
-              <CopyIcon className="h-4 w-4" />
-            )}
-          </Button>
-        )}
+        <div>
+          {props.tailContent && (
+            <div className="text-sm font-medium leading-6 text-gray-900">
+              <Tooltip delayDuration={0}>
+                <TooltipTrigger>{props.tailContent}</TooltipTrigger>
+                <TooltipContent>
+                  <p>{props.tailContentTooltip || props.tailContent}</p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+          )}
+          {props.withCopy && (
+            <Button variant="ghost" size="icon" onClick={copyToClipboard}>
+              {copySuccess ? (
+                <Check className="h-4 w-4" />
+              ) : (
+                <CopyIcon className="h-4 w-4" />
+              )}
+            </Button>
+          )}
+        </div>
       </div>
     </TooltipProvider>
   )

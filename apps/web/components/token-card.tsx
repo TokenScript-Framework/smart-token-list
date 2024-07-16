@@ -1,4 +1,3 @@
-import { PolygonIcon } from "@/components/icons/polygon-icon"
 import { SingleTokenCardInfo } from "@/components/single-token-card-info"
 import { Button } from "@/components/ui/button"
 import {
@@ -8,11 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { CHAIN_ID_TO_NAME_MAP } from "@/lib/chain-ids"
 import { shortenAddress } from "@/lib/shorten-contract-address"
 import { cn } from "@/lib/utils"
-import { TokenInfo } from "@repo/smart-token-list"
-import { FileCode2, Plus } from "lucide-react"
+import { CHAIN_ID_MAP, TokenInfo } from "@repo/smart-token-list"
+import { DollarSign, FileCode2, Link, Plus } from "lucide-react"
 
 type TokenCardProps = {
   tokenInfo: TokenInfo
@@ -40,7 +38,7 @@ export function TokenCard({ className, ...props }: TokenCardProps) {
       </CardHeader>
 
       <CardContent className="grid gap-4">
-        <div className="bg-border my-4 h-[1px] w-full shrink-0"></div>
+        <div className="bg-border my-4 h-px w-full shrink-0"></div>
         <div className="flex flex-col gap-4">
           <SingleTokenCardInfo
             title={"Contract"}
@@ -50,22 +48,29 @@ export function TokenCard({ className, ...props }: TokenCardProps) {
             withCopy
           />
 
+          {props.tokenInfo.type === "erc20" && (
+            <SingleTokenCardInfo
+              title={"Symbol"}
+              icon={<DollarSign className="h-6 w-5 text-gray-400" />}
+              content={props.tokenInfo.symbol}
+              withCopy={false}
+            />
+          )}
+
           <SingleTokenCardInfo
             title={"Chain"}
-            icon={
-              <PolygonIcon
-                aria-hidden="true"
-                className="h-5 w-5 rounded-full grayscale"
-              />
-            }
-            content={CHAIN_ID_TO_NAME_MAP[props.tokenInfo.chainId]?.name || ""}
+            icon={<Link className="h-6 w-5 text-gray-400" />}
+            content={CHAIN_ID_MAP[props.tokenInfo.chainId]?.name || ""}
+            tailContent={props.tokenInfo.chainId.toString()}
+            tailContentTooltip="Chain Id"
             withCopy={false}
           />
         </div>
       </CardContent>
+
       <CardFooter>
         <Button className="text-primary w-full" variant="outline">
-          <Plus className="text-primary mr-2 h-4 w-4" /> Add to Explorer
+          <Plus className="text-primary mr-2 size-4" /> Add to Explorer
         </Button>
       </CardFooter>
 
