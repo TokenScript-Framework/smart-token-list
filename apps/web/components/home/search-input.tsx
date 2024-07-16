@@ -1,11 +1,14 @@
 "use client"
 import { Search } from "lucide-react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { useEffect, useRef } from "react"
 
 export function SearchInput() {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const { replace } = useRouter()
+
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const handleSearch = (term: string) => {
     const params = new URLSearchParams(searchParams)
@@ -13,6 +16,12 @@ export function SearchInput() {
 
     replace(`${pathname}?${params.toString()}`)
   }
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus()
+    }
+  }, [])
 
   return (
     <div className="sticky top-0 z-50 -m-5 rounded-[10px] bg-[#f3f3f3] p-5 dark:bg-[#181818]">
@@ -24,6 +33,7 @@ export function SearchInput() {
                 Search Smart Tokens
               </span>
               <input
+                ref={inputRef}
                 placeholder="SmartCat, SLN, ..."
                 className="flex-1 bg-white px-3 pb-4 pt-2 text-black outline-none sm:px-2 sm:py-4 dark:bg-[#0D0D0D] dark:text-[#B3B3B3]"
                 onChange={(e) => handleSearch(e.target.value)}
