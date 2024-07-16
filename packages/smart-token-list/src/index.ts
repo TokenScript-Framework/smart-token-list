@@ -47,13 +47,22 @@ export function query(params: {
   chainId?: number
   name?: string
   address?: string
+  symbol?: string
   fuzzy?: boolean
 }): TokenInfo[] {
-  if (!(params.chainId || params.name || params.address)) {
+  if (!(params.chainId || params.name || params.address || params.symbol)) {
     return ALL_TOKENS
   }
 
   return ALL_TOKENS.filter((token) => {
+    if (params.symbol) {
+      if (token.type !== "erc20") {
+        return false
+      }
+      if (!stringMatched(token.symbol, params.symbol, params.fuzzy)) {
+        return false
+      }
+    }
     if (params.chainId) {
       if (!numberMatched(token.chainId, params.chainId, params.fuzzy)) {
         return false
@@ -84,6 +93,9 @@ export function fuzzySearch(str: string): TokenInfo[] {
     result.add(item)
   })
   query({ address: str, fuzzy: true }).forEach((item) => {
+    result.add(item)
+  })
+  query({ symbol: str, fuzzy: true }).forEach((item) => {
     result.add(item)
   })
   return [...result]
