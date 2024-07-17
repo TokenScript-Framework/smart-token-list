@@ -12,6 +12,7 @@ import { shortenAddress } from "@/lib/shorten-contract-address"
 import { cn } from "@/lib/utils"
 import { CHAIN_ID_MAP, TokenInfo } from "@repo/smart-token-list"
 import { DollarSign, FileCode2, Link, Plus } from "lucide-react"
+import toast from "react-hot-toast"
 
 type TokenCardProps = {
   tokenInfo: TokenInfo
@@ -73,13 +74,23 @@ export function TokenCard({ className, ...props }: TokenCardProps) {
       </CardContent>
 
       <CardFooter>
-        <Button className="text-primary w-full" variant="outline" asChild>
+        {/* <Button className="text-primary w-full" variant="outline" asChild>
           <a
             href={`https://www.tantantodo.com/?chain=${props.tokenInfo.chainId}&contract=${props.tokenInfo.address}&type=${props.tokenInfo.type}`}
             target="_blank"
           >
             <Plus className="text-primary mr-2 size-4" /> Add to Explorer
           </a>
+        </Button> */}
+
+        <Button
+          className="text-primary w-full"
+          variant="outline"
+          onClick={() => {
+            toast("Coming soon!", { icon: "⏳" })
+          }}
+        >
+          <Plus className="text-primary mr-2 size-4" /> Add to Explorer
         </Button>
       </CardFooter>
 
