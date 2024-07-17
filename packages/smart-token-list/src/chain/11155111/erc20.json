@@ -16,24 +16,8 @@
     "logoURI": ""
   },
   {
-    "name": "RB404 Alpha Testing v2",
-    "address": "0x6f923a119f5ff8af0db3e897ac360ab58929d6e7",
-    "chainId": 11155111,
-    "symbol": "RBTT",
-    "decimals": 8,
-    "logoURI": ""
-  },
-  {
     "name": "RB404 Alpha Testing v4",
     "address": "0xBB14e71E54E03808A6271722192d03EBDc2EAB7F",
-    "chainId": 11155111,
-    "symbol": "RBTT",
-    "decimals": 8,
-    "logoURI": ""
-  },
-  {
-    "name": "RB404 Alpha Testing v3",
-    "address": "0x6A55eE0A3E9CE2db407bCDBf88Dd185384404133",
     "chainId": 11155111,
     "symbol": "RBTT",
     "decimals": 8,
