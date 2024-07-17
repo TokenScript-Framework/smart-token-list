@@ -27,6 +27,16 @@ export function SearchInput() {
     replace(`${pathname}?${params.toString()}`)
   }, 300)
 
+  const handleToggleTestnet = useDebouncedCallback(
+    (includeTestnets: boolean) => {
+      const params = new URLSearchParams(searchParams)
+      params.set("includeTestnets", includeTestnets.toString())
+
+      replace(`${pathname}?${params.toString()}`)
+    },
+    300
+  )
+
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus()
@@ -53,11 +63,17 @@ export function SearchInput() {
             </label>
           </div>
           <div className="flex flex-col gap-4 px-3 py-2 text-black sm:flex-row sm:items-center sm:justify-between dark:text-[#B3B3B3]">
-            <div></div>
-            {/* <label className="flex items-center gap-2">
-              <input type="checkbox" name="testnets" />
+            <label className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                name="testnets"
+                onChange={(e) => handleToggleTestnet(e.target.checked)}
+                defaultChecked={
+                  searchParams.get("includeTestnets")?.toString() === "true"
+                }
+              />
               <span>Include Testnets</span>
-            </label> */}
+            </label>
             <ChainFilter></ChainFilter>
           </div>
         </div>

@@ -1,7 +1,7 @@
 "use client"
 import { SearchInput } from "@/components/home/search-input"
 import { TokenCard } from "@/components/token-card"
-import { fuzzySearch, TokenInfo } from "@repo/smart-token-list"
+import { CHAIN_ID_MAP, fuzzySearch, TokenInfo } from "@repo/smart-token-list"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
@@ -11,9 +11,16 @@ export function SearchList() {
   const searchParams = useSearchParams()
   const query = searchParams.get("query")
   const chain = searchParams.get("chain") || "all"
+  const includeTestnets = searchParams.get("includeTestnets") === "true"
 
   useEffect(() => {
-    const searchResults = fuzzySearch(query || "")
+    const searchResults = fuzzySearch(query || "").filter((v) => {
+      if (!includeTestnets) {
+        return !CHAIN_ID_MAP[v.chainId]?.isTestnet
+      }
+      return true
+    })
+
     if (chain === "all") {
       setList(searchResults)
     } else {
@@ -21,7 +28,7 @@ export function SearchList() {
         searchResults.filter((token) => token.chainId.toString() === chain)
       )
     }
-  }, [chain, query])
+  }, [chain, includeTestnets, query])
 
   return (
     <div className="relative flex flex-col gap-5 bg-[#f3f3f3] p-5 dark:bg-[#181818]">
