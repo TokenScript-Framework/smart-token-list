@@ -93,9 +93,6 @@ export function TokenCard({ className, ...props }: TokenCardProps) {
           <Plus className="text-primary mr-2 size-4" /> Add to Explorer
         </Button>
       </CardFooter>
-
-      <h2 className="sr-only">Summary</h2>
-      <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5"></div>
     </Card>
   )
 }
