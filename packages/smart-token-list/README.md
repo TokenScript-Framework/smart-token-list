@@ -48,9 +48,9 @@ console.log(fuzzySearch("My Token"))
 console.log(stat({ includeTestnet: true }))
 ```
 
-## Submit smart tokens
+## Submit Smart Tokens
 
-All smart tokens should be submitted to `src/chain/${chainId}/{erc20.json,erc721.json,erc1155.json}`
+All Smart Tokens should be submitted to `src/chain/${chainId}/{erc20.json,erc721.json,erc1155.json}`
 
 `erc20.json` schema should like this:
 
