@@ -20,7 +20,3 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Adding your Smart Token
-
-If you wish to add your Smart Token, please follow this [PR template](https://github.com/DefiLlama/chainlist/blob/main/pull_request_template.md)
