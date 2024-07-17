@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -26,14 +27,17 @@ export function TokenCard({ className, ...props }: TokenCardProps) {
       )}
     >
       <CardHeader className="pb-0">
-        <div className="flex items-center justify-between">
-          <div>
+        <div className="">
+          <div className="flex w-full items-center justify-between">
             <CardTitle>{props.tokenInfo.name}</CardTitle>
-            {/* <CardDescription>by Smart Layer</CardDescription> */}
+            <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+              {props.tokenInfo.type.toUpperCase()}
+            </span>
           </div>
-          <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-            {props.tokenInfo.type.toUpperCase()}
-          </span>
+          <CardDescription className="mt-2 line-clamp-4 text-left text-gray-400">
+            {/* @ts-ignore */}
+            {props.tokenInfo?.description}
+          </CardDescription>
         </div>
       </CardHeader>
 
