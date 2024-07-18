@@ -51,7 +51,7 @@ export function SearchInput() {
         <div className="flex flex-1 flex-col rounded-[10px] bg-white dark:bg-[#0D0D0D]">
           <div className="rounded-t-[10px] shadow-sm">
             <label className="flex flex-col rounded-t-[10px] ring-[#2F80ED] focus-within:ring-2 sm:flex-row sm:items-center dark:ring-[#2F80ED]">
-              <span className="whitespace-nowrap px-3 pt-4 text-sm font-bold text-black sm:pt-0 dark:text-[#B3B3B3]">
+              <span className="whitespace-nowrap px-3 pt-4 font-bold text-black sm:pt-0 dark:text-[#B3B3B3]">
                 Search Smart Tokens
               </span>
               <input
