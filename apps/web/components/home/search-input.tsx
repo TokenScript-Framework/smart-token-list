@@ -26,7 +26,7 @@ export function SearchInput() {
     const params = new URLSearchParams(searchParams)
     params.set("query", term)
 
-    replace(`${pathname}?${params.toString()}`)
+    replace(`${pathname}?${params.toString()}`, { scroll: false })
   }, 300)
 
   const handleToggleTestnet = useDebouncedCallback(
@@ -34,7 +34,7 @@ export function SearchInput() {
       const params = new URLSearchParams(searchParams)
       params.set("includeTestnets", includeTestnets.toString())
 
-      replace(`${pathname}?${params.toString()}`)
+      replace(`${pathname}?${params.toString()}`, { scroll: false })
     },
     300
   )
@@ -111,7 +111,7 @@ function ChainFilter() {
       params.set("chain", chain)
     }
 
-    replace(`${pathname}?${params.toString()}`)
+    replace(`${pathname}?${params.toString()}`, { scroll: false })
   }, 300)
 
   useEffect(() => {
