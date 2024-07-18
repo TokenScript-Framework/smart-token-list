@@ -34,7 +34,7 @@ export function SearchList() {
     <div className="relative flex flex-col gap-5 bg-[#f3f3f3] p-5 dark:bg-[#181818]">
       <SearchInput />
 
-      <div className="isolate grid grid-flow-dense grid-cols-1 place-content-between gap-5 pb-4 text-black sm:pb-10 xl:grid-cols-[repeat(auto-fit,_calc(50%_-_15px))] 2xl:grid-cols-[repeat(auto-fit,_calc(33%_-_20px))] dark:text-[#B3B3B3]">
+      <div className="isolate grid grid-flow-dense grid-cols-1 place-content-between gap-5 pb-4 text-black sm:pb-10 xl:grid-cols-[repeat(auto-fit,_calc(50%_-_15px))] 2xl:grid-cols-3 dark:text-[#B3B3B3]">
         {list.map((v, index) => (
           <TokenCard key={index} tokenInfo={v} />
         ))}
