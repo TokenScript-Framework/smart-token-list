@@ -6,13 +6,5 @@
     "symbol": "BID",
     "decimals": 8,
     "logoURI": "https://store.redbrick.land/asset/BrcID.png"
-  },
-  {
-    "name": "Brc:ID",
-    "address": "0x9ff357ca329970abe57e24814194d99fa505b48c",
-    "chainId": 137,
-    "symbol": "BID",
-    "decimals": 8,
-    "logoURI": "https://store.redbrick.land/asset/BrcID.png"
   }
 ]
