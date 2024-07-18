@@ -8,13 +8,15 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { CHAIN_ID_MAP } from "@repo/smart-token-list"
-import { Search } from "lucide-react"
+import { Search, X } from "lucide-react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useRef } from "react"
 import { useDebouncedCallback } from "use-debounce"
 
 export function SearchInput() {
   const searchParams = useSearchParams()
+  const query = searchParams.get("query")
+
   const pathname = usePathname()
   const { replace } = useRouter()
 
@@ -59,7 +61,19 @@ export function SearchInput() {
                 onChange={(e) => handleSearch(e.target.value)}
                 defaultValue={searchParams.get("query")?.toString()}
               />
-              <Search className="mr-3 hidden sm:block" />
+              {query ? (
+                <X
+                  className="mr-3 hidden cursor-pointer sm:block"
+                  onClick={() => {
+                    if (inputRef.current) {
+                      inputRef.current.value = ""
+                      handleSearch("")
+                    }
+                  }}
+                />
+              ) : (
+                <Search className="mr-3 hidden sm:block" />
+              )}
             </label>
           </div>
           <div className="flex flex-col gap-4 px-3 py-2 text-black sm:flex-row sm:items-center sm:justify-between dark:text-[#B3B3B3]">
