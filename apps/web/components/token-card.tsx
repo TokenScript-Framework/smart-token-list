@@ -1,3 +1,4 @@
+import { ExpandableContent } from "@/components/expandable-content"
 import { SingleTokenCardInfo } from "@/components/single-token-card-info"
 import { Button } from "@/components/ui/button"
 import {
@@ -20,6 +21,9 @@ type TokenCardProps = {
 }
 
 export function TokenCard({ className, ...props }: TokenCardProps) {
+  // @ts-ignore
+  const desc: string | undefined = props.tokenInfo?.description
+
   return (
     <Card
       className={cn(
@@ -35,10 +39,11 @@ export function TokenCard({ className, ...props }: TokenCardProps) {
               {props.tokenInfo.type.toUpperCase()}
             </span>
           </div>
-          <CardDescription className="mt-2 line-clamp-4 text-left text-gray-400">
-            {/* @ts-ignore */}
-            {props.tokenInfo?.description}
-          </CardDescription>
+          {desc && (
+            <CardDescription className="mt-2 text-left text-gray-400">
+              <ExpandableContent description={desc} />
+            </CardDescription>
+          )}
         </div>
       </CardHeader>
 
