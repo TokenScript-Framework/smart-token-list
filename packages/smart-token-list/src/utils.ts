@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
-import { Erc1155, Erc20, Erc721, TokenInfo } from "./types"
+import { BlockedToken, Erc1155, Erc20, Erc721, TokenInfo } from "./types"
 
 // fix __dirname is not defined in ES module scope
 const __filename = fileURLToPath(import.meta.url)
@@ -60,4 +60,8 @@ export function readAllTokens(): TokenInfo[] {
       return { ...item, type: "erc1155" } as Erc1155
     }),
   ].flat()
+}
+
+export function readBlockedTokens(): BlockedToken[] {
+  return readJSONFile(path.join(__dirname, "chain/blocked.json"))
 }

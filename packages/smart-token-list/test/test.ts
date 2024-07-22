@@ -2,13 +2,21 @@ import test from "ava"
 import fs from "fs"
 import path from "path"
 import { z } from "zod"
-import { Erc1155Schema, Erc20Schema, Erc721Schema } from "../src"
+import {
+  BlockedTokenSchema,
+  Erc1155Schema,
+  Erc20Schema,
+  Erc721Schema,
+} from "../src"
 import {
   BASE_PATH,
   readAllERC1155Files,
   readAllERC20Files,
   readAllERC721Files,
   readAllJsonFilesUnderDir,
+  readAllTokens,
+  readBlockedTokens,
+  readJSONFile,
 } from "../src/utils"
 import {
   getDuplicates,
@@ -21,6 +29,42 @@ import {
 const ERC20_JSON_CONTENT = readAllERC20Files()
 const ERC721_JSON_CONTENT = readAllERC721Files()
 const ERC1155_JSON_CONTENT = readAllERC1155Files()
+const ALL_TOKENS = readAllTokens()
+const BLOCKED_TOKENS = readBlockedTokens()
+
+test("blocked.json should match the schema", (t) => {
+  t.notThrows(() => z.array(BlockedTokenSchema).parse(readBlockedTokens()))
+})
+
+test("blocked.json should not contains duplicate items", (t) => {
+  const blockedDuplicates = getDuplicates(
+    readBlockedTokens(),
+    "address",
+    "chainId"
+  )
+  t.is(
+    blockedDuplicates.length,
+    0,
+    `${blockedDuplicates.length} duplicate items found in blocked.json:
+${JSON.stringify(blockedDuplicates, null, 2)}`
+  )
+})
+
+test("all src/chain/{chainId}/*.json should not contain blocked.json items", (t) => {
+  const blocked = ALL_TOKENS.filter((token) => {
+    return BLOCKED_TOKENS.some((b) => {
+      return (
+        b.chainId === token.chainId &&
+        b.address.toLowerCase() === token.address.toLowerCase()
+      )
+    })
+  })
+  t.is(
+    blocked.length,
+    0,
+    `${blocked.length} blocked tokens found: ${JSON.stringify(blocked, null, 2)}`
+  )
+})
 
 test("erc20.json should match the schema", (t) => {
   t.notThrows(() =>
@@ -103,9 +147,18 @@ ${JSON.stringify(invalid, null, 2)}`
 })
 
 test("all items in erc20.json should be ERC20 tokens", async (t) => {
+  let jsonContent = ERC20_JSON_CONTENT
+  if (fs.existsSync(path.join(__dirname, "../diff_erc20.json"))) {
+    const diffErc20 = readJSONFile(path.join(__dirname, "../diff_erc20.json"))
+    jsonContent = ERC20_JSON_CONTENT.filter((item) =>
+      diffErc20.some(
+        (d: any) => item.chainId === d.chainId && item.address === d.address
+      )
+    )
+  }
   await t.notThrowsAsync(
     Promise.all(
-      ERC20_JSON_CONTENT.map(async (item: any) => {
+      jsonContent.map(async (item: any) => {
         const result = await isERC20(item.chainId, item.address)
         if (!result) {
           throw new Error(
@@ -119,9 +172,18 @@ test("all items in erc20.json should be ERC20 tokens", async (t) => {
 })
 
 test("all items in erc20.json should be ERC5169 tokens", async (t) => {
+  let jsonContent = ERC20_JSON_CONTENT
+  if (fs.existsSync(path.join(__dirname, "../diff_erc20.json"))) {
+    const diffErc20 = readJSONFile(path.join(__dirname, "../diff_erc20.json"))
+    jsonContent = ERC20_JSON_CONTENT.filter((item) =>
+      diffErc20.some(
+        (d: any) => item.chainId === d.chainId && item.address === d.address
+      )
+    )
+  }
   await t.notThrowsAsync(
     Promise.all(
-      ERC20_JSON_CONTENT.map(async (item: any) => {
+      jsonContent.map(async (item: any) => {
         const result = await isERC5169(item.chainId, item.address)
         if (!result) {
           throw new Error(
@@ -135,9 +197,18 @@ test("all items in erc20.json should be ERC5169 tokens", async (t) => {
 })
 
 test("all items in erc721.json should be ERC721 tokens", async (t) => {
+  let jsonContent = ERC721_JSON_CONTENT
+  if (fs.existsSync(path.join(__dirname, "../diff_erc721.json"))) {
+    const diffErc721 = readJSONFile(path.join(__dirname, "../diff_erc721.json"))
+    jsonContent = ERC721_JSON_CONTENT.filter((item) =>
+      diffErc721.some(
+        (d: any) => item.chainId === d.chainId && item.address === d.address
+      )
+    )
+  }
   await t.notThrowsAsync(
     Promise.all(
-      ERC721_JSON_CONTENT.map(async (item: any) => {
+      jsonContent.map(async (item: any) => {
         const result = await isERC721(item.chainId, item.address)
         if (!result) {
           throw new Error(
@@ -151,9 +222,18 @@ test("all items in erc721.json should be ERC721 tokens", async (t) => {
 })
 
 test("all items in erc721.json should be ERC5169 tokens", async (t) => {
+  let jsonContent = ERC721_JSON_CONTENT
+  if (fs.existsSync(path.join(__dirname, "../diff_erc721.json"))) {
+    const diffErc721 = readJSONFile(path.join(__dirname, "../diff_erc721.json"))
+    jsonContent = ERC721_JSON_CONTENT.filter((item) =>
+      diffErc721.some(
+        (d: any) => item.chainId === d.chainId && item.address === d.address
+      )
+    )
+  }
   await t.notThrowsAsync(
     Promise.all(
-      ERC721_JSON_CONTENT.map(async (item: any) => {
+      jsonContent.map(async (item: any) => {
         const result = await isERC5169(item.chainId, item.address)
         if (!result) {
           throw new Error(
@@ -167,9 +247,20 @@ test("all items in erc721.json should be ERC5169 tokens", async (t) => {
 })
 
 test("all items in erc1155.json should be ERC1155 tokens", async (t) => {
+  let jsonContent = ERC1155_JSON_CONTENT
+  if (fs.existsSync(path.join(__dirname, "../diff_erc1155.json"))) {
+    const diffErc721 = readJSONFile(
+      path.join(__dirname, "../diff_erc1155.json")
+    )
+    jsonContent = ERC1155_JSON_CONTENT.filter((item) =>
+      diffErc721.some(
+        (d: any) => item.chainId === d.chainId && item.address === d.address
+      )
+    )
+  }
   await t.notThrowsAsync(
     Promise.all(
-      ERC1155_JSON_CONTENT.map(async (item: any) => {
+      jsonContent.map(async (item: any) => {
         const result = await isERC1155(item.chainId, item.address)
         if (!result) {
           throw new Error(
@@ -183,9 +274,20 @@ test("all items in erc1155.json should be ERC1155 tokens", async (t) => {
 })
 
 test("all items in erc1155.json should be ERC5169 tokens", async (t) => {
+  let jsonContent = ERC1155_JSON_CONTENT
+  if (fs.existsSync(path.join(__dirname, "../diff_erc1155.json"))) {
+    const diffErc721 = readJSONFile(
+      path.join(__dirname, "../diff_erc1155.json")
+    )
+    jsonContent = ERC1155_JSON_CONTENT.filter((item) =>
+      diffErc721.some(
+        (d: any) => item.chainId === d.chainId && item.address === d.address
+      )
+    )
+  }
   await t.notThrowsAsync(
     Promise.all(
-      ERC1155_JSON_CONTENT.map(async (item: any) => {
+      jsonContent.map(async (item: any) => {
         const result = await isERC5169(item.chainId, item.address)
         if (!result) {
           throw new Error(

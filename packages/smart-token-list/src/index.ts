@@ -1,12 +1,14 @@
 import { CHAIN_ID_MAP } from "./chain-map"
+import blocked from "./chain/blocked.json"
 import tokens from "./tokens.json"
-import { TokenInfo } from "./types"
+import { BlockedToken, TokenInfo } from "./types"
 
 export * from "./types"
 
 export * from "./chain-map"
 
 const ALL_TOKENS: TokenInfo[] = tokens as TokenInfo[]
+const BLOCKED_TOKENS: BlockedToken[] = blocked as BlockedToken[]
 
 function numberMatched(num1: number, num2: number, fuzzy = false): boolean {
   if (fuzzy) {
@@ -22,6 +24,10 @@ function stringMatched(str1: string, str2: string, fuzzy = false): boolean {
   } else {
     return str1.toLowerCase() === str2.toLowerCase()
   }
+}
+
+export function blockedTokens(): BlockedToken[] {
+  return BLOCKED_TOKENS
 }
 
 export function query(params: {

@@ -73,7 +73,18 @@ export const TokenInfoSchema = z.union([
   Erc1155Schema,
 ])
 
+/**
+ * Blocked token schema
+ */
+export const BlockedTokenSchema = z
+  .object({
+    address: z.string().startsWith("0x").length(42),
+    chainId: z.number(),
+  })
+  .strict()
+
 export type Erc20 = z.infer<typeof Erc20Schema>
 export type Erc721 = z.infer<typeof Erc721Schema>
 export type Erc1155 = z.infer<typeof Erc1155Schema>
 export type TokenInfo = z.infer<typeof TokenInfoSchema>
+export type BlockedToken = z.infer<typeof BlockedTokenSchema>
