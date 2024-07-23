@@ -8,7 +8,8 @@
     "prebuild": "tsx src/buildList.ts",
     "build": "tsup",
     "postbuild": "shx cp -r src/tokens.json src/chain/blocked.json dist/",
-    "test": "c8 ava"
+    "test": "c8 ava",
+    "diffTokens": "tsx scripts/diffTokens.ts"
   },
   "main": "dist/index.cjs",
   "module": "dist/index.js",
