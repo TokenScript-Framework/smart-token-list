@@ -7,7 +7,9 @@ import { fileURLToPath } from "url"
 const __filename = fileURLToPath(import.meta.url)
 export const __dirname = path.dirname(__filename)
 
-const targetBranch = process.env.GITHUB_BASE_REF ?? "HEAD"
+const targetBranch = process.env.GITHUB_BASE_REF
+  ? `origin/${process.env.GITHUB_BASE_REF}`
+  : "HEAD"
 
 function getDiffList(paths: string[]) {
   return paths
