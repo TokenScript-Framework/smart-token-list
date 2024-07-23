@@ -27,3 +27,11 @@ Contract Address:
 Chain Id:
 Description:
 Image:
+
+## For ERC1155
+
+Token Name:
+Contract Address:
+Chain Id:
+Description:
+Image:
