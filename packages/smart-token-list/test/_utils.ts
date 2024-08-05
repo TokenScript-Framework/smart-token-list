@@ -49,7 +49,7 @@ function getProvider(chainId: number): ethers.Provider {
       break
     // polygon
     case 137:
-      rpcUrl = "https://polygon.meowrpc.com"
+      rpcUrl = "https://polygon.llamarpc.com"
       break
     // Mint Mainnet
     case 185:
