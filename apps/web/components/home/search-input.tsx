@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { CHAIN_ID_MAP } from "@repo/smart-token-list"
+import { CHAIN_ID_MAP } from "@st/smart-token-list"
 import { Search, X } from "lucide-react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useRef } from "react"

@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card"
 import { shortenAddress } from "@/lib/shorten-contract-address"
 import { cn } from "@/lib/utils"
-import { CHAIN_ID_MAP, TokenInfo } from "@repo/smart-token-list"
+import { CHAIN_ID_MAP, TokenInfo } from "@st/smart-token-list"
 import { DollarSign, FileCode2, Link, Plus } from "lucide-react"
 import toast from "react-hot-toast"
 

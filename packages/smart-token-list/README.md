@@ -5,7 +5,7 @@ This is the smart tokens collection. All tokens here should also implement the [
 ## Installation
 
 ```sh
-npm i @repo/smart-token-list
+npm i @st/smart-token-list
 ```
 
 build locally:
@@ -29,9 +29,9 @@ to install.
 js code:
 
 ```js
-const { fuzzySearch, stat } = require("@repo/smart-token-list")
+const { fuzzySearch, stat } = require("@st/smart-token-list")
 // Also you can use our tokens.json directly
-const token = require("@repo/smart-token-list/dist/tokens.json")
+const token = require("@st/smart-token-list/dist/tokens.json")
 
 console.log(fuzzySearch("My Token"))
 console.log(stat({ includeTestnet: true }))
@@ -40,9 +40,9 @@ console.log(stat({ includeTestnet: true }))
 ts code:
 
 ```ts
-import { fuzzySearch, stat } from "@repo/smart-token-list"
+import { fuzzySearch, stat } from "@st/smart-token-list"
 // Make sure set {"resolveJsonModule": true, "esModuleInterop": true} in your tsconfig.json
-import tokens from "@repo/smart-token-list/dist/tokens.json"
+import tokens from "@st/smart-token-list/dist/tokens.json"
 
 console.log(fuzzySearch("My Token"))
 console.log(stat({ includeTestnet: true }))

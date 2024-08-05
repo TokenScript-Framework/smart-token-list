@@ -44,7 +44,7 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@repo/smart-token-list':
+      '@st/smart-token-list':
         specifier: workspace:*
         version: link:../../packages/smart-token-list
       class-variance-authority:
@@ -87,10 +87,10 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^14.2.3
         version: 14.2.3
-      '@repo/eslint-config':
+      '@st/eslint-config':
         specifier: workspace:*
         version: link:../../packages/config-eslint
-      '@repo/typescript-config':
+      '@st/typescript-config':
         specifier: workspace:*
         version: link:../../packages/config-typescript
       '@types/node':
@@ -153,10 +153,10 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
-      '@repo/eslint-config':
+      '@st/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
-      '@repo/typescript-config':
+      '@st/typescript-config':
         specifier: workspace:*
         version: link:../config-typescript
       ava:

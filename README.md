@@ -9,7 +9,7 @@ To request that we add a token to the list,
 
 This Turborepo includes the following packages/apps:
 
-- `@repo/smart-token-list`: List of Smart Tokens, visit [the readme file](https://github.com/TokenScript-Framework/smart-token-list/blob/main/packages/smart-token-list/README.md) to see how to use it
+- `@st/smart-token-list`: List of Smart Tokens, visit [the readme file](https://github.com/TokenScript-Framework/smart-token-list/blob/main/packages/smart-token-list/README.md) to see how to use it
 - `web`: Website
 
 ### Get started

@@ -1,7 +1,7 @@
 "use client"
 import { SearchInput } from "@/components/home/search-input"
 import { TokenCard } from "@/components/token-card"
-import { CHAIN_ID_MAP, fuzzySearch, TokenInfo } from "@repo/smart-token-list"
+import { CHAIN_ID_MAP, fuzzySearch, TokenInfo } from "@st/smart-token-list"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
