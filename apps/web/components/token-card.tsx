@@ -12,8 +12,8 @@ import {
 import { shortenAddress } from "@/lib/shorten-contract-address"
 import { cn } from "@/lib/utils"
 import { CHAIN_ID_MAP, TokenInfo } from "@st/smart-token-list"
-import { DollarSign, FileCode2, Link, Plus } from "lucide-react"
-import toast from "react-hot-toast"
+import { DollarSign, FileCode2, Link as LinkIcon, Plus } from "lucide-react"
+import Link from "next/link"
 
 type TokenCardProps = {
   tokenInfo: TokenInfo
@@ -69,7 +69,7 @@ export function TokenCard({ className, ...props }: TokenCardProps) {
 
           <SingleTokenCardInfo
             title={"Chain"}
-            icon={<Link className="h-6 w-5 text-gray-400" />}
+            icon={<LinkIcon className="h-6 w-5 text-gray-400" />}
             content={CHAIN_ID_MAP[props.tokenInfo.chainId]?.name || ""}
             tailContent={props.tokenInfo.chainId.toString()}
             tailContentTooltip="Chain Id"
@@ -88,14 +88,13 @@ export function TokenCard({ className, ...props }: TokenCardProps) {
           </a>
         </Button> */}
 
-        <Button
-          className="text-primary w-full"
-          variant="outline"
-          onClick={() => {
-            toast("Coming soon!", { icon: "⏳" })
-          }}
-        >
-          <Plus className="text-primary mr-2 size-4" /> Add to Explorer
+        <Button className="text-primary w-full" variant="outline" asChild>
+          <Link
+            href={`https://d3b4oczgnqtk98.cloudfront.net/import/${props.tokenInfo.type.toUpperCase()}/${props.tokenInfo.chainId}/${props.tokenInfo.address}`}
+            target="_blank"
+          >
+            <Plus className="text-primary mr-2 size-4" /> Add to Explorer
+          </Link>
         </Button>
       </CardFooter>
     </Card>
